@@ -118,7 +118,7 @@ function smoothScrollTo(target) {
     const startPosition = window.scrollY || window.pageYOffset;
     const targetPosition = target.getBoundingClientRect().top + window.scrollY;
     const distance = targetPosition - startPosition;
-    const duration = 5000; // Dauer der Animation in Millisekunden (langsamer)
+    const duration = 3500; // Dauer der Animation in Millisekunden (langsamer)
     let startTime = null;
 
     function animation(currentTime) {
