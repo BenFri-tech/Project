@@ -1,0 +1,178 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(145deg, #121212, #1e1e1e);
+    color: #e0e0e0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Particles Background */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Setzt die Partikel hinter den Inhalt */
+}
+
+/* Navbar Styles */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 15px 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container ul {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    list-style: none;
+}
+
+.nav-container ul li {
+    position: relative;
+}
+
+.nav-container ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 1.1rem;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.nav-container ul li a:hover {
+    color: #00bcd4;
+    transform: translateY(-3px);
+}
+
+.nav-container ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #00bcd4;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.nav-container ul li a:hover::after {
+    width: 100%;
+}
+
+/* Header Section */
+header {
+    height: 100vh;
+    background: url('header-bg.jpg') no-repeat center center/cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+header h1, header p {
+    animation: fadeIn 2s ease-out;
+}
+
+header h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #0091ea;
+}
+
+header p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #80deea;
+}
+
+.btn-main {
+    background-color: #00bcd4;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn-main:hover {
+    background-color: #0097a7;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Section Styles */
+.section {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content-box {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+h2 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+    color: #4fc3f7;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    nav {
+        padding: 10px 0;
+    }
+
+    .header h1 {
+        font-size: 3rem;
+    }
+
+    .content-container {
+        padding: 0 20px;
+    }
+}
+
+/* Kontakt Section */
+#kontakt .content-box a {
+    color: #00c1fc;  /* Helles Grün für die Links (E-Mail und Telefon) */
+    text-decoration: none;  /* Entfernt den Standardunterstrich */
+    transition: color 0.3s, text-decoration 0.3s; /* Für sanfte Übergänge bei Hover */
+}
+
+#kontakt .content-box a:hover {
+    color: #ffffff;  /* Farbe auf Weiß ändern, wenn der Benutzer darüber hovert */
+    text-decoration: underline;  /* Unterstreicht den Link bei Hover */
+}
