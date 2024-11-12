@@ -1,21 +1,22 @@
-// Sicherstellen, dass der gesamte DOM geladen ist, bevor der Code ausgeführt wird
 document.addEventListener('DOMContentLoaded', () => {
-// Smooth Scroll für Navigation Links
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();  // Verhindert das normale Verlinkungsverhalten
+    // Scroll-Position auf den oberen Rand setzen
+    window.scrollTo(0, 0);
 
-        // Wähle das Ziel-Element, auf das der Link verweist
-        const targetElement = document.querySelector(this.getAttribute('href'));
+    // Smooth Scroll für Navigation Links
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();  // Verhindert das normale Verlinkungsverhalten
 
-        // Scrollen zu dem Ziel-Element mit Offset für die Navigation
-        targetElement.scrollIntoView({
-            behavior: 'smooth', // Sanftes Scrollen
-            block: 'start'  // Scrollt zu Beginn der Sektion
+            // Wähle das Ziel-Element, auf das der Link verweist
+            const targetElement = document.querySelector(this.getAttribute('href'));
+
+            // Scrollen zu dem Ziel-Element mit Offset für die Navigation
+            targetElement.scrollIntoView({
+                behavior: 'smooth', // Sanftes Scrollen
+                block: 'start'  // Scrollt zu Beginn der Sektion
+            });
         });
     });
-});
-
 
     // Particle.js Initialisierung (falls du diesen Code schon vorher hattest)
     particlesJS('particles-js', {
@@ -113,54 +114,4 @@ document.querySelectorAll('nav a').forEach(anchor => {
         },
         retina_detect: true
     });
-});
-// Partikel-Animationen hinzufügen (verwenden von particles.js)
-particlesJS("particles-js", {
-    "particles": {
-        "number": {
-            "value": 80,
-            "density": {
-                "enable": true,
-                "value_area": 800
-            }
-        },
-        "color": {
-            "value": "#00bcd4"
-        },
-        "shape": {
-            "type": "circle",
-            "stroke": {
-                "width": 0,
-                "color": "#00bcd4"
-            }
-        },
-        "opacity": {
-            "value": 0.5,
-            "random": true,
-            "anim": {
-                "enable": true,
-                "speed": 1,
-                "opacity_min": 0.1,
-                "sync": false
-            }
-        },
-        "size": {
-            "value": 3,
-            "random": true,
-            "anim": {
-                "enable": true,
-                "speed": 40,
-                "size_min": 0.1,
-                "sync": false
-            }
-        },
-        "line_linked": {
-            "enable": true,
-            "distance": 150,
-            "color": "#00bcd4",
-            "opacity": 0.4,
-            "width": 1
-        }
-    },
-    "retina_detect": true
 });
