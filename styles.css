@@ -20,7 +20,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -1; /* Setzt die Partikel hinter den Inhalt */
+    z-index: -1;
 }
 
 /* Navbar Styles */
@@ -105,15 +105,16 @@ header p {
     color: #80deea;
 }
 
+/* Vergrößerter und responsiver Button */
 .btn-main {
     background-color: #00bcd4;
     color: white;
-    padding: 1.5vh 3vw;
-    font-size: 1.2vw;
+    padding: min(2vh, 1vw) min(4vw, 6vw);  /* Responsive Padding */
+    font-size: min(1.5vw, 4vh);  /* Dynamische Schriftgröße */
     font-weight: 600;
-    border-radius: 3vw;
+    border-radius: min(3vw, 6vh);
     text-decoration: none;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, padding 0.3s, font-size 0.3s;
 }
 
 .btn-main:hover {
@@ -167,12 +168,12 @@ h2 {
 
 /* Kontakt Section */
 #kontakt .content-box a {
-    color: #00c1fc;  /* Helles Grün für die Links (E-Mail und Telefon) */
-    text-decoration: none;  /* Entfernt den Standardunterstrich */
-    transition: color 0.3s, text-decoration 0.3s; /* Für sanfte Übergänge bei Hover */
+    color: #00c1fc;
+    text-decoration: none;
+    transition: color 0.3s, text-decoration 0.3s;
 }
 
 #kontakt .content-box a:hover {
-    color: #ffffff;  /* Farbe auf Weiß ändern, wenn der Benutzer darüber hovert */
-    text-decoration: underline;  /* Unterstreicht den Link bei Hover */
+    color: #ffffff;
+    text-decoration: underline;
 }
