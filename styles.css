@@ -18,19 +18,19 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Setzt die Partikel hinter den Inhalt */
 }
 
 /* Navbar Styles */
 nav {
     position: fixed;
     top: 0;
-    width: 100vw;
+    width: 100%;
     padding: 2vh 0;
     background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(1vh);
+    backdrop-filter: blur(10px);
     z-index: 10;
     box-shadow: 0 0.4vh 1vh rgba(0, 0, 0, 0.3);
 }
@@ -49,7 +49,7 @@ nav {
 .nav-container ul li a {
     color: #e0e0e0;
     text-decoration: none;
-    font-size: 1.1vw;
+    font-size: 2vw;
     position: relative;
     padding-bottom: 0.5vh;
     transition: color 0.3s, transform 0.3s;
@@ -57,7 +57,7 @@ nav {
 
 .nav-container ul li a:hover {
     color: #00bcd4;
-    transform: translateY(-0.3vh);
+    transform: translateY(-0.5vh);
 }
 
 .nav-container ul li a::after {
@@ -93,87 +93,84 @@ header h1, header p {
 }
 
 header h1 {
-    font-size: 4vw;
+    font-size: 6vw;
     font-weight: 700;
     margin-bottom: 2vh;
     color: #0091ea;
 }
 
 header p {
-    font-size: 1.5vw;
+    font-size: 3vw;
     margin-bottom: 3vh;
     color: #80deea;
 }
 
-/* Vergrößerter und responsiver Button */
 .btn-main {
     background-color: #00bcd4;
     color: white;
-    padding: min(2vh, 1vw) min(4vw, 6vw);  /* Responsive Padding */
-    font-size: min(1.5vw, 4vh);  /* Dynamische Schriftgröße */
+    padding: 3vh 6vw;
+    font-size: 2vw;
     font-weight: 600;
-    border-radius: min(3vw, 6vh);
+    border-radius: 2vw;
     text-decoration: none;
-    transition: background-color 0.3s, padding 0.3s, font-size 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 .btn-main:hover {
-    background-color: #0097a7;
-}
-
-/* Animations */
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(-2vh); }
-    100% { opacity: 1; transform: translateY(0); }
+    background-color: #0091ea;
 }
 
 /* Section Styles */
 .section {
-    padding: 10vh 2vw;
+    padding: 10vh 5vw;
     text-align: center;
 }
 
 .content-container {
-    max-width: 90vw;
+    width: 80%;
     margin: 0 auto;
 }
 
 .content-box {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 3vh;
-    border-radius: 1vw;
+    margin-top: 3vh;
 }
 
-h2 {
-    font-size: 3vw;
-    margin-bottom: 3vh;
-    font-weight: 600;
-    color: #4fc3f7;
+.content-box p, .content-box h3 {
+    font-size: 1.5vw;
 }
 
-/* Mobile Responsive */
+.content-box a {
+    color: #80deea;
+}
+
+.content-box a:hover {
+    color: #00bcd4;
+}
+
+/* Media Queries für Responsive Design */
 @media (max-width: 768px) {
-    nav {
-        padding: 1vh 0;
+    .nav-container ul li a {
+        font-size: 4vw;
     }
 
-    .header h1 {
-        font-size: 8vw;
+    .btn-main {
+        padding: 5vh 10vw;
+        font-size: 4vw;
     }
 
-    .content-container {
-        padding: 0 4vw;
+    header h1 {
+        font-size: 10vw;
     }
-}
 
-/* Kontakt Section */
-#kontakt .content-box a {
-    color: #00c1fc;
-    text-decoration: none;
-    transition: color 0.3s, text-decoration 0.3s;
-}
+    header p {
+        font-size: 5vw;
+    }
 
-#kontakt .content-box a:hover {
-    color: #ffffff;
-    text-decoration: underline;
+    .section {
+        padding: 5vh 3vw;
+    }
+
+    .content-box p, .content-box h3 {
+        font-size: 4vw;
+    }
 }
