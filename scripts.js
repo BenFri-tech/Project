@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Scroll-Position auf den oberen Rand setzen
     window.scrollTo(0, 0);
 
-    // Smooth Scroll für Navigation Links
+    // Smooth Scroll für Navigation Links mit langsamerer Geschwindigkeit
     document.querySelectorAll('nav a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();  // Verhindert das normale Verlinkungsverhalten
@@ -10,15 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
             // Wähle das Ziel-Element, auf das der Link verweist
             const targetElement = document.querySelector(this.getAttribute('href'));
 
-            // Scrollen zu dem Ziel-Element mit Offset für die Navigation
-            targetElement.scrollIntoView({
-                behavior: 'smooth', // Sanftes Scrollen
-                block: 'start'  // Scrollt zu Beginn der Sektion
-            });
+            // Langsame Scroll-Funktion
+            smoothScrollTo(targetElement);
         });
     });
 
-    // Particle.js Initialisierung (falls du diesen Code schon vorher hattest)
+    // Partikel-Animationen initialisieren (wie zuvor)
     particlesJS('particles-js', {
         particles: {
             number: {
@@ -115,3 +112,32 @@ document.addEventListener('DOMContentLoaded', () => {
         retina_detect: true
     });
 });
+
+// Langsame Scroll-Funktion mit `requestAnimationFrame`
+function smoothScrollTo(target) {
+    const startPosition = window.scrollY || window.pageYOffset;
+    const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+    const distance = targetPosition - startPosition;
+    const duration = 1500; // Dauer der Animation in Millisekunden (langsamer)
+    let startTime = null;
+
+    function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const scrollAmount = easeInOutCubic(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, scrollAmount);
+
+        if (timeElapsed < duration) {
+            requestAnimationFrame(animation);
+        }
+    }
+
+    requestAnimationFrame(animation);
+}
+
+// Ease-In-Out-Function für eine sanfte Animation
+function easeInOutCubic(t, b, c, d) {
+    let ts = (t /= d) * t;
+    let tc = ts * t;
+    return b + c * (tc + -3 * ts + 3 * t);
+}
