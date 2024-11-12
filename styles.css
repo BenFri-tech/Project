@@ -75,6 +75,13 @@ nav {
     width: 100%;
 }
 
+/* Navbar Schriftgröße für mobile Geräte */
+@media (max-width: 768px) {
+    .nav-container ul li a {
+        font-size: 4vw;  /* Vergrößerte Schriftgröße für kleine Bildschirme */
+    }
+}
+
 /* Header Section */
 header {
     height: 100vh;
