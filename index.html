@@ -28,7 +28,7 @@
         <div class="header-content">
             <h1>Software/Webseiten Entwickler</h1>
             <p>Innovative Lösungen für digitale Welten</p>
-            <a href="#kontakt" class="btn-main">Kontakt</a>
+            <a href="#kontakt" class="btn-main">Kontakt</a> <!-- Großer Kontakt-Button -->
         </div>
     </header>
 
@@ -61,16 +61,14 @@
         <div class="content-container">
             <h2>Aufgaben</h2>
             <div class="content-box">
-            <h3> Backend Entwickler</h3>
-            <p>Entwickeln und verwalten die Datenverarbeitung einer Webseite</p><br>
+                <h3>Backend Entwickler</h3>
+                <p>Entwickeln und verwalten die Datenverarbeitung einer Webseite</p><br>
 
-            <h3>Frontend Entwickler</h3>
-            <p>Entwickeln und verwalten Das Aussehen einer Webseite</p><br>
+                <h3>Frontend Entwickler</h3>
+                <p>Entwickeln und verwalten das Aussehen einer Webseite</p><br>
 
-
-            <h3>Fullstack Entwickler</h3>
-            <p>Entwicklung von Frontend und Backend</p><br>
-            
+                <h3>Fullstack Entwickler</h3>
+                <p>Entwicklung von Frontend und Backend</p><br>
             </div>
         </div>
     </section>
@@ -80,21 +78,19 @@
         <div class="content-container">
             <h2>Ausbildung/Abschlüsse</h2>
             <div class="content-box">
-
                 <h3>Eine direkte Ausbildung gibt es nicht</h3> <br>
-                <h3>Die klassischen Grunlagen sind:</h3> <br>
-                
+                <h3>Die klassischen Grundlagen sind:</h3> <br>
+
                 <h3>Bachelor in Informatik</h3>
                 <p>Grundlage für Entwicklerpositionen, vermittelt wesentliche Programmierkenntnisse.</p>
                 <p><strong>Dauer:</strong> 3 Jahre</p><br>
-    
+
                 <h3>Master in Informatik</h3>
                 <p>Vertiefung in spezialisierten Bereichen wie KI, maschinelles Lernen und Cybersicherheit.</p>
                 <p><strong>Dauer:</strong> 2 Jahre</p><br>
-    
+
                 <h3>Bootcamps</h3>
                 <p>Kompakte Programme, die praktische Fähigkeiten in modernen Entwicklungstechnologien vermitteln.</p>
-                
             </div>
         </div>
     </section>
@@ -113,5 +109,26 @@
 
     <!-- External JavaScript Datei -->
     <script src="scripts.js"></script>
+    
+    <!-- Inline JavaScript für das Smooth Scrolling -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const contactButton = document.querySelector('.btn-main');
+            
+            // Wenn der große Kontakt-Button geklickt wird
+            contactButton.addEventListener('click', function (e) {
+                e.preventDefault();  // Verhindert die Standardaktion (direktes Springen)
+
+                // Ziel: Der Kontaktbereich
+                const target = document.querySelector('#kontakt');
+
+                // Scrollen zum Ziel mit smooth scroll
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
