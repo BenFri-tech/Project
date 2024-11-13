@@ -141,6 +141,14 @@ header p {
     text-align: center;
 }
 
+/* Section Styles */
+.section {
+    padding: 10vh 2vw;
+    text-align: center;
+    font-size: 2vw;
+}
+
+
 .content-container {
     max-width: 90vw;
     margin: 0 auto;
