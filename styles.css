@@ -79,7 +79,7 @@ nav {
 /* Navbar Schriftgröße für mobile Geräte */
 @media (max-width: 768px) {
     .nav-container ul li a {
-        font-size: 1.8vw;  /* Kleinere Schriftgröße für mobile Geräte */
+        font-size: 1.9vw;  /* Kleinere Schriftgröße für mobile Geräte */
     }
 }
 
