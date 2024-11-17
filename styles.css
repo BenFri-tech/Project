@@ -5,12 +5,22 @@
     box-sizing: border-box;
 }
 
+/* Grundlegende Farbeinstellungen */
+:root {
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --bg-primary: #0d1117;
+    --accent-color: #00bcd4;
+    --accent-secondary: #3f51b5;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(145deg, #121212, #1e1e1e);
-    color: #e0e0e0;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     overflow-x: hidden;
     scroll-behavior: smooth;
+    line-height: 1.6;
 }
 
 /* Particles Background */
@@ -29,8 +39,8 @@ nav {
     top: 0;
     width: 100vw;
     padding: 2vh 0;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(1vh);
+    background: rgba(13, 17, 23, 0.7);
+    backdrop-filter: blur(10px);
     z-index: 10;
     box-shadow: 0 0.4vh 1vh rgba(0, 0, 0, 0.3);
 }
@@ -44,11 +54,10 @@ nav {
 
 .nav-container ul li {
     position: relative;
-    justify-content: ;
 }
 
 .nav-container ul li a {
-    color: #e0e0e0;
+    color: var(--text-primary);
     text-decoration: none;
     font-size: 1.1vw;
     position: relative;
@@ -57,7 +66,7 @@ nav {
 }
 
 .nav-container ul li a:hover {
-    color: #00bcd4;
+    color: var(--accent-color);
     transform: translateY(-0.3vh);
 }
 
@@ -66,7 +75,7 @@ nav {
     position: absolute;
     width: 0;
     height: 0.2vh;
-    background-color: #00bcd4;
+    background-color: var(--accent-color);
     bottom: -0.2vh;
     left: 0;
     transition: width 0.3s ease;
@@ -79,24 +88,25 @@ nav {
 /* Navbar Schriftgröße für mobile Geräte */
 @media (max-width: 768px) {
     .nav-container ul li a {
-        font-size: 1.9vw;  /* Kleinere Schriftgröße für mobile Geräte */
+        font-size: 1.8vw;
+        /* Kleinere Schriftgröße für mobile Geräte */
     }
 }
 
-/* Header Section */
 header {
     height: 100vh;
     background: url('header-bg.jpg') no-repeat center center/cover;
-    position: relative;
+    background-attachment: fixed;
     display: flex;
-    align-items: center;
     justify-content: center;
-    color: white;
+    align-items: center;
+    color: var(--text-primary);
     text-align: center;
-    overflow: hidden;
+    animation: fadeIn 1.5s ease;
 }
 
-header h1, header p {
+header h1,
+header p {
     animation: fadeIn 2s ease-out;
 }
 
@@ -104,35 +114,46 @@ header h1 {
     font-size: 4vw;
     font-weight: 700;
     margin-bottom: 2vh;
-    color: #0091ea;
+    color: var(--accent-color);
 }
 
 header p {
-    font-size: 1.8vw;
+    font-size: 1.5vw;
     margin-bottom: 3vh;
-    color: #80deea;
+    color: var(--accent-secondary);
 }
 
-/* Vergrößerter und responsiver Button */
 .btn-main {
-    background-color: #00bcd4;
-    color: white;
-    padding: min(2vh, 1vw) min(4vw, 6vw);  /* Responsive Padding */
-    font-size: min(1.5vw, 4vh);  /* Dynamische Schriftgröße */
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-secondary));
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    font-size: 1rem;
     font-weight: 600;
-    border-radius: min(3vw, 6vh);
+    color: white;
     text-decoration: none;
-    transition: background-color 0.3s, padding 0.3s, font-size 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 
 .btn-main:hover {
-    background-color: #0097a7;
+    background: linear-gradient(90deg, var(--accent-secondary), var(--accent-color));
+    transform: scale(1.4);
 }
 
 /* Animations */
 @keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(-2vh); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateY(-15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Section Styles */
@@ -141,26 +162,49 @@ header p {
     text-align: center;
 }
 
-.section h2 {
-    font-size: 2.5vw;
-}
-
 .content-container {
     max-width: 90vw;
     margin: 0 auto;
 }
 
 .content-box {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 3vh;
+    background: rgba(13, 17, 23, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+    color: var(--text-primary);
+    padding: 2rem;
     border-radius: 1vw;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.content-box.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 h2 {
     font-size: 3vw;
     margin-bottom: 3vh;
     font-weight: 600;
-    color: #4fc3f7;
+    color: var(--text-primary);
+    background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+h2::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--text-primary);
+    z-index: -1;
 }
 
 /* Mobile Responsive */
@@ -180,12 +224,59 @@ h2 {
 
 /* Kontakt Section */
 #kontakt .content-box a {
-    color: #00c1fc;
+    color: var(--accent-color);
     text-decoration: none;
-    transition: color 0.3s, text-decoration 0.3s;
+    position: relative;
+    transition: color 0.3s ease;
 }
 
-#kontakt .content-box a:hover {
-    color: #ffffff;
-    text-decoration: underline;
-} 
+#kontakt .content-box a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--text-primary);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+#kontakt .content-box a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+body.dark-mode {
+    background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+    color: #f5f5f5;
+}
+
+/* Überschriften */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+}
+
+/* Links */
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-secondary);
+}
+
+/* Paragraphen */
+p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+/* Starke Hervorhebungen */
+strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
