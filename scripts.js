@@ -141,3 +141,70 @@ function easeInOutCubic(t, b, c, d) {
     let tc = ts * t;
     return b + c * (tc + -3 * ts + 3 * t);
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Parallax-Effekt
+    window.addEventListener('scroll', function () {
+        const header = document.querySelector('.header');
+        header.style.backgroundPositionY = `${window.scrollY * 0.5}px`;
+    });
+
+    // Smooth Scroll mit Animation
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetElement = document.querySelector(this.getAttribute('href'));
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
+});
+
+// Intersection Observer für Scroll-Animationen
+const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            entry.target.style.transform = 'translateY(0)';
+            entry.target.style.opacity = '1';
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.content-box').forEach(box => {
+    box.style.opacity = '0';
+    box.style.transform = 'translateY(50px)';
+    box.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+    observer.observe(box);
+});
+
+// Verbesserte Partikel-Konfiguration
+particlesJS('particles-js', {
+    particles: {
+        number: { value: 100 },
+        color: { value: ['#00bcd4', '#3f51b5', '#e91e63'] },
+        shape: { type: 'circle' },
+        opacity: {
+            value: 0.6,
+            random: true
+        },
+        size: {
+            value: 3,
+            random: true
+        },
+        move: {
+            enable: true,
+            speed: 3,
+            direction: 'none',
+            random: true,
+            out_mode: 'out'
+        }
+    }
+});
